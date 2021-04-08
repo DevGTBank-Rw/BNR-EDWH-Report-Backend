@@ -1,7 +1,9 @@
 package rw.co.gtbank.edwh.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import rw.co.gtbank.edwh.entity.TbInfrasinfo;
 
 @Repository
-public interface TbInfrasinfoRepository {
+public interface TbInfrasinfoRepository extends JpaRepository<TbInfrasinfo,String> {
 }
