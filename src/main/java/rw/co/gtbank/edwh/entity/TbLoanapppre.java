@@ -1,11 +1,14 @@
 package rw.co.gtbank.edwh.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
 @Entity
-public class TbLoanapppre {
-
+@IdClass(TbLoanapppre.class)
+public class TbLoanapppre implements Serializable {
   private String country;
   private String leBook;
   private java.sql.Date businessDate;
@@ -13,7 +16,6 @@ public class TbLoanapppre {
   private String loanApplicationId;
   private String prevContractId;
   private String prevContModifReason;
-
 
   public String getCountry() {
     return country;
