@@ -5,6 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -24,7 +25,8 @@ public class TbMtommtrf implements Serializable {
 	private int idType;
 	private String identificationNumber;
 	private String otherPartyName;
-	private int otherIdType;
+	@Column(nullable = true)
+	private Integer otherIdType;
 	private String otherIdNumber;
 	private String residentsFlag;
 	private String remittanceCountry;
@@ -114,11 +116,11 @@ public class TbMtommtrf implements Serializable {
 		this.otherPartyName = otherPartyName;
 	}
 
-	public int getOtherIdType() {
+	public Integer getOtherIdType() {
 		return otherIdType;
 	}
 
-	public void setOtherIdType(int otherIdType) {
+	public void setOtherIdType(Integer otherIdType) {
 		this.otherIdType = otherIdType;
 	}
 
