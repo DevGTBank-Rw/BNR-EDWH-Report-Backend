@@ -148,6 +148,9 @@ public class AppController {
 	@Autowired
 	private TbStakeHoldRepository tbStakeHoldRepository;
 
+	@Autowired
+	private TbContDisbRepository tbContDispRepository;
+
 	@PostMapping(value = "/TbAccounts")
 	@Transactional
 	public ResponseEntity<?> saveTbAccountsReport(@Valid @RequestBody List<TbAccounts> data,
@@ -449,5 +452,12 @@ public class AppController {
 	public ResponseEntity<?> saveTbStakeHold(@Valid @RequestBody List<TbStakehold> data) {
 		tbStakeHoldRepository.deleteByDate(data.get(0).getYearMonth());
 		return new ResponseEntity<>(tbStakeHoldRepository.saveAll(data), HttpStatus.ACCEPTED);
+	}
+
+	@PostMapping(value = "/TbContDisb")
+	@Transactional
+	public ResponseEntity<?> saveTbContDisp(@Valid @RequestBody List<TbContDisb> data) {
+		tbContDispRepository.deleteByDate(data.get(0).getBusinessDate());
+		return new ResponseEntity<>(tbContDispRepository.saveAll(data), HttpStatus.ACCEPTED);
 	}
 }
